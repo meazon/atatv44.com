@@ -93,3 +93,40 @@ function play() {
     }, 2000);
 }
 
+// Ses efektleri için Audio nesneleri
+const tvStartup = document.getElementById('tv-startup');
+const tvHiss = document.getElementById('tv-hiss');
+const scrollSound = new Audio('TVScroll.mp3');
+
+// Kaydırma sesi için değişkenler
+let isScrolling;
+let lastScrollTime = Date.now();
+const scrollDelay = 50; // ms cinsinden minimum ses çalma aralığı
+
+// Kaydırma olayını dinle
+window.addEventListener('scroll', () => {
+    const now = Date.now();
+    
+    // Minimum ses çalma aralığını kontrol et
+    if (now - lastScrollTime > scrollDelay) {
+        scrollSound.currentTime = 0;
+        scrollSound.play();
+        lastScrollTime = now;
+    }
+    
+    // Kaydırma durduğunda sesi durdur
+    clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+        scrollSound.pause();
+        scrollSound.currentTime = 0;
+    }, 150);
+});
+
+// Sayfa yüklendiğinde TV açılış sesini çal
+window.addEventListener('load', () => {
+    tvStartup.play();
+    setTimeout(() => {
+        tvHiss.play();
+    }, 1000);
+});
+
