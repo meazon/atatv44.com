@@ -1,3 +1,10 @@
+// Initialize Vercel Analytics
+import { inject } from '@vercel/analytics';
+
+inject({
+	mode: 'production'
+});
+
 var main = document.querySelector('main'),
 	canvas = document.getElementById('canvas'),
 	ctx = canvas.getContext('2d'),
