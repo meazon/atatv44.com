@@ -1,0 +1,22 @@
+{
+  "name": "atatv44-com",
+  "version": "1.0.0",
+  "description": "ATATV44 - Türkiye'nin en büyük kara mizah topluluğu",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build step required'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "atatv44",
+    "discord",
+    "turkish",
+    "community"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
